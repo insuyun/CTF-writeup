@@ -1,0 +1,17 @@
+libc_start_main : 00019990
+libc : f7592990
+
+fsb : /bin/sh addr
+sendto : system
+
+bss = 0x0804F180
+fd = 0x0804E15C
+send_to_got = 0x804E0A8
+
+
+__libc_start_main : 00019990 
+snprintf : 0004D4E0 
+
+
+Connection from 54.255.187.190 port 8080 [tcp/http-alt] accepted
+The flag is: Why isn't everyone native IPv6 by now?!?!

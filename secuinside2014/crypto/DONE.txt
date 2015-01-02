@@ -1,0 +1,20 @@
+wuninsu@ubuntu:~/secuinside/crypto$ python pillow_reader.py 219.240.37.153 5151 "s3cret"
+Welcome to Pillow Reader. Here are some articles from online.
+
+86e05276d3c364cd6157e23cd972e0a662dff9ebf9ade83eae022c292c767bcd6cf528c7f6ae98af2f7811d99c9e45e7e4e6f1b9841aabf89a84dd0673099b61
+Read [flag1]
+The flag is "7h053 wh0 bu1ld b3n347h
+wuninsu@ubuntu:~/secuinside/crypto$ fg
+vim pillow_reader.py
+
+[1]+  Stopped                 vim pillow_reader.py
+wuninsu@ubuntu:~/secuinside/crypto$ python pillow_reader.py 219.240.37.153 5151 "s3cret"
+Welcome to Pillow Reader. Here are some articles from online.
+
+86e05276d3c364cd6157e23cd972e0a662dff9ebf9ade83eae022c292c767bcd6cf528c7f6ae98af2f7811d99c9e45e7e4e6f1b9841aabf89a84dd0673099b61
+Read [flag2]
+ 7h3 574r5 bu1ld 700 l0w."(without quote)
+
+/*****
+Using unwind disassembpler
+*****/
