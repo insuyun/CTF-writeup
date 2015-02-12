@@ -48,7 +48,7 @@ class Exploit
     msg = sxor(orig[0..15], sxor(plain, "flag".ljust(16, "\x0c"))) + orig[16..-1]
     puts "FINAL : #{msg.inspect}"
     @s.write(msg + "\n")
-    puts @s.readline
+    loop { print @s.read(0x1) }
 
   end
 end
