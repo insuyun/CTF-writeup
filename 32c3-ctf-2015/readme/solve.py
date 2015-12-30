@@ -10,7 +10,6 @@ def p64(n):
 
 if __name__ == '__main__':
 	s = create_connection(ADDR)
-	raw_input()
 	f = s.makefile(bufsize=0)
 	print (f.readline())
 	print (f.read(len("What's your name? ")))
