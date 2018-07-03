@@ -1,0 +1,46 @@
+b *0x401765
+b *0x4014CE
+
+commands 2
+silent
+set $rip = 0x401765
+disable 2
+c
+end
+
+def fn
+  enable 2
+  c
+end
+
+
+disable 2
+set $old = 0
+commands 1
+  silent
+  if *(int*)($rbp-0x40) % 20 == 0 && $old != *(int*)($rbp-0x40)
+    set $old = *(int*)($rbp-0x40)
+    print $old
+    if (*(byte*)0x60764c) == 111
+      set $rip = 0x40143D
+      fn
+    else
+      if (*(byte*)0x60764d) == 111
+        set $rip = 0x40145D
+        fn
+      else
+        if (*(byte*)0x60764e) == 111
+          set $rip = 0x40147D
+          fn
+        else
+          if (*(byte*)0x60764f) == 111
+            set $rip = 0x40149D
+            fn
+          end
+        end
+      end
+    end
+  end
+  c
+end
+
