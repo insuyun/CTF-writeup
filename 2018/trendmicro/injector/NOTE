@@ -1,0 +1,4 @@
+This program injects a code to notepad.exe
+Find the injected code and copy to the program
+Then, it prints out ROT-13 encrypted key.
+
